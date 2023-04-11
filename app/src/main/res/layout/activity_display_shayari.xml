@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#F5EBEB"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Display_Shayari_Activity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#867070">
+
+            <ImageView
+                android:id="@+id/imgback"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/backarrow" />
+
+            <TextView
+                android:id="@+id/txtshayari"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:text="Shayari"
+                android:textColor="#F5EBEB"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imglike"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:src="@drawable/like2" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/shayari_item"
+        android:id="@+id/rcvshayari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
