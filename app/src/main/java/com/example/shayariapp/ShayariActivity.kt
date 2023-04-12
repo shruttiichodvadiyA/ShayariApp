@@ -1,12 +1,18 @@
 package com.example.shayariapp
 
+import android.R.attr.label
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.shayariapp.databinding.ActivityShayariBinding
+
 
 class ShayariActivity : AppCompatActivity() {
 lateinit var binding: ActivityShayariBinding
@@ -48,7 +54,13 @@ lateinit var binding: ActivityShayariBinding
             i.putExtra(Intent.EXTRA_TEXT,shayari)
             startActivity(i)
         }
-
+        binding.imgcopy.setOnClickListener {
+            val clipboard: ClipboardManager =
+                getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("label", shayari)
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(this, "copy", Toast.LENGTH_SHORT).show()
+        }
 
     }
 }

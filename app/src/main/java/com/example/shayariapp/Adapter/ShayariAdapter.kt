@@ -39,6 +39,7 @@ class ShayariAdapter(
         } else {
             holder.like.setImageResource(R.drawable.like)
         }
+
         holder.like.setOnClickListener {
             if (shayariDisplaylist[position].fav == 1) {
                 invo.invoke(0, shayariDisplaylist[position].s_id)
