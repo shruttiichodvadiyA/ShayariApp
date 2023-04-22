@@ -18,7 +18,11 @@ class MyDatabase(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB
     private val mDataBase: SQLiteDatabase? = null
     private var mNeedUpdate = false
     private val mContext: Context
-
+//    var db=MyDatabase(context).writableDatabase
+//    override fun getWritableDatabase(): SQLiteDatabase {
+//        return super.getWritableDatabase()
+//        db.version
+//    }
     init {
         if (Build.VERSION.SDK_INT >= 17) DB_PATH =
             context.applicationInfo.dataDir + "/databases/" else DB_PATH =

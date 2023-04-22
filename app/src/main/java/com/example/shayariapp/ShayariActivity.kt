@@ -1,6 +1,5 @@
 package com.example.shayariapp
 
-import android.R.attr.label
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -29,8 +28,6 @@ lateinit var binding: ActivityShayariBinding
 
 
         binding.imgback.setOnClickListener {
-//            val intent = Intent(this,MainActivity::class.java)
-//            startActivity(intent)
             onBackPressed()
         }
 

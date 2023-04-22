@@ -25,36 +25,33 @@ class Display_Shayari_Activity : AppCompatActivity() {
     }
 
     private fun initview() {
-        var titlename:String?=intent.getStringExtra("title")
-        binding.txtshayari.text=titlename
+        var titlename: String? = intent.getStringExtra("title")
+        binding.txtshayari.text = titlename
 
-         getid=intent.getIntExtra("id",0)
+        getid = intent.getIntExtra("id", 0)
 
 //        shayariDisplaylist=db.displayShayari(getid)
 
-         adapter= ShayariAdapter( {
+        adapter = ShayariAdapter({
             val intent = Intent(this, ShayariActivity::class.java)
             intent.putExtra("shayari", it.Shayari)
             startActivity(intent)
-        },{ fav , sid ->
+        }, { fav, sid ->
 
-            db.displayfavoutite(fav,sid)
+            db.displayfavoutite(fav, sid)
         })
-        var manager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        binding.rcvshayari.layoutManager=manager
-        binding.rcvshayari.adapter=adapter
+        var manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.rcvshayari.layoutManager = manager
+        binding.rcvshayari.adapter = adapter
 
         binding.imgback.setOnClickListener {
             onBackPressed()
         }
         binding.imglike.setOnClickListener {
-            val intent =Intent(this,Favourite_Activity::class.java)
+            val intent = Intent(this, Favourite_Activity::class.java)
             startActivity(intent)
         }
-
-
     }
-
     override fun onResume() {
         super.onResume()
         shayariDisplaylist=db.displayShayari(getid)

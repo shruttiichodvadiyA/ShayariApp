@@ -51,4 +51,6 @@ dependencies {
 
 //    color picker
     implementation "com.github.skydoves:colorpickerview:2.2.4"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }
