@@ -1,18 +1,20 @@
 package com.example.shayariapp
 
-import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shayariapp.Adapter.CategoryAdapter
 import com.example.shayariapp.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -73,16 +75,22 @@ class MainActivity : AppCompatActivity() {
             Log.e("tagggggggg", "shayari: " + it.c_id)
             startActivity(intent)
         }
-        val manager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.rcvcategory.layoutManager = manager
+        val manager1 = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.rcvcategory.layoutManager = manager1
         binding.rcvcategory.adapter = adapter
 
         binding.imglike.setOnClickListener {
             val intent = Intent(this, Favourite_Activity::class.java)
             startActivity(intent)
         }
-        binding.txtversion.text= db.writableDatabase.version.toString()
-//        db.writableDatabase.version
+        //version
+        val manager=packageManager
+        val info:PackageInfo=manager.getPackageInfo(
+            packageName,0
+        )
+        val version:String=info.versionName
+        binding.txtversion.text=version
+
     }
 
     private var onBackToExitPressedOnce: Boolean = false

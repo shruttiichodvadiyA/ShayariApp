@@ -5,8 +5,8 @@
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:openDrawer="start"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:openDrawer="start">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,11 +29,11 @@
                 app:tint="@color/white" />
 
             <TextView
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:id="@+id/txttitle"
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:text="Shayari Category"
                 android:textColor="#F5EBEB"
                 android:textSize="@dimen/_17sdp"
@@ -260,23 +260,39 @@
                     android:background="@color/black" />
 
                 <TextView
-                    android:layout_marginTop="@dimen/_40sdp"
                     android:id="@+id/txtprivacy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40sdp"
                     android:gravity="center"
                     android:text="Privacy Policy"
                     android:textColor="#867070"
                     android:textSize="@dimen/_15ssp" />
 
-                <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/txtversion"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="#867070"
-                    android:textSize="@dimen/_15ssp" />
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Version"
+                        android:textColor="#867070"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/txtversion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:textColor="#867070"
+                        android:textStyle="italic" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
